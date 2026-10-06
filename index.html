@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow | Task Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         LANDING / ROLE SELECTION
+    ========================== -->
+
+    <section id="roleSection" class="page-section">
+
+        <div class="landing-glow glow-one"></div>
+        <div class="landing-glow glow-two"></div>
+
+        <div class="landing-container">
+
+            <div class="brand-badge">
+                TASKFLOW
+            </div>
+
+            <h1>Task Management System</h1>
+
+            <p class="landing-subtitle">
+                Organize. Assign. Accomplish.
+            </p>
+
+            <p class="landing-description">
+                A simple workspace for managers and candidates to
+                manage tasks, collaborate and track progress.
+            </p>
+
+
+            <div class="role-grid">
+
+                <!-- MANAGER -->
+
+                <button
+                    class="role-card"
+                    onclick="selectRole('manager')"
+                >
+
+                    <div class="role-icon manager-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M16 21V19C16 16.79 14.21 15 12 15H6C3.79 15 2 16.79 2 19V21"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+
+                            <circle
+                                cx="9"
+                                cy="7"
+                                r="4"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <path
+                                d="M22 21V19C22 17.17 20.77 15.63 19.08 15.16"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+
+                            <path
+                                d="M16 3.13C17.66 3.57 18.82 5.08 18.82 6.8C18.82 8.52 17.66 10.03 16 10.47"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                    </div>
+
+                    <span class="role-label">
+                        FOR TEAM LEADERS
+                    </span>
+
+                    <h2>Manager</h2>
+
+                    <p>
+                        Create your workspace, assign tasks and
+                        monitor your team's progress.
+                    </p>
+
+                    <span class="role-action">
+                        Continue <span>→</span>
+                    </span>
+
+                </button>
+
+
+                <!-- CANDIDATE -->
+
+                <button
+                    class="role-card"
+                    onclick="selectRole('candidate')"
+                >
+
+                    <div class="role-icon candidate-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+
+                            <circle
+                                cx="12"
+                                cy="7"
+                                r="4"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <path
+                                d="M4 21C4 17.69 7.58 15 12 15C16.42 15 20 17.69 20 21"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+
+                        </svg>
+                    </div>
+
+                    <span class="role-label">
+                        FOR TEAM MEMBERS
+                    </span>
+
+                    <h2>Candidate</h2>
+
+                    <p>
+                        Join your workspace, manage assigned tasks
+                        and track your progress.
+                    </p>
+
+                    <span class="role-action">
+                        Continue <span>→</span>
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <div class="landing-footer">
+                Simple &nbsp;•&nbsp; Organized &nbsp;•&nbsp; Collaborative
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         AUTHENTICATION
+    ========================== -->
+
+    <section id="authSection" class="page-section hidden">
+
+        <div class="auth-wrapper">
+
+            <div class="auth-card">
+
+                <button
+                    class="back-button"
+                    onclick="goBackToRoles()"
+                >
+                    ← Back
+                </button>
+
+
+                <div class="auth-brand">
+                    TASKFLOW
+                </div>
+
+                <div class="auth-role-title">
+                    <span id="authRoleLabel">Manager</span>
+                    Account
+                </div>
+
+
+                <!-- LOGIN / REGISTER SWITCH -->
+
+                <div class="auth-tabs">
+
+                    <button
+                        id="loginTab"
+                        class="auth-tab active"
+                        onclick="switchAuthMode('login')"
+                    >
+                        Login
+                    </button>
+
+                    <button
+                        id="registerTab"
+                        class="auth-tab"
+                        onclick="switchAuthMode('register')"
+                    >
+                        Register
+                    </button>
+
+                </div>
+
+
+                <!-- =================
+                     LOGIN FORM
+                ================== -->
+
+                <form
+                    id="loginForm"
+                    onsubmit="handleLogin(event)"
+                >
+
+                    <div class="input-group">
+
+                        <label for="loginUsername">
+                            Username
+                        </label>
+
+                        <input
+                            type="text"
+                            id="loginUsername"
+                            placeholder="Enter your username"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="loginPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Login
+                    </button>
+
+                </form>
+
+
+
+                <!-- =================
+                     REGISTER FORM
+                ================== -->
+
+                <form
+                    id="registerForm"
+                    class="hidden"
+                    onsubmit="handleRegister(event)"
+                >
+
+                    <div class="input-group">
+
+                        <label for="registerName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="registerName"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="registerUsername">
+                            Username
+                        </label>
+
+                        <input
+                            type="text"
+                            id="registerUsername"
+                            placeholder="Create a username"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="registerEmail">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="registerEmail"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="registerPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            placeholder="Create a password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- MANAGER ONLY -->
+
+                    <div
+                        id="managerRoomPreview"
+                        class="room-preview"
+                    >
+
+                        <div class="room-preview-icon">
+                            #
+                        </div>
+
+                        <div>
+                            <strong>
+                                Your Room Code
+                            </strong>
+
+                            <span>
+                                A unique room code will be
+                                generated after registration.
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- CANDIDATE ONLY -->
+
+                    <div
+                        id="candidateRoomInput"
+                        class="input-group hidden"
+                    >
+
+                        <label for="registerRoomCode">
+                            Room Code
+                        </label>
+
+                        <input
+                            type="text"
+                            id="registerRoomCode"
+                            placeholder="Example: ROOM-A7K2P"
+                        >
+
+                        <small>
+                            Enter the Room Code given by your Manager.
+                        </small>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Create Account
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         MANAGER DASHBOARD
+    ========================== -->
+
+    <section
+        id="managerDashboard"
+        class="dashboard-section hidden"
+    >
+
+        <header class="dashboard-header">
+
+            <div class="header-left">
+
+                <div class="header-logo">
+                    TASKFLOW
+                </div>
+
+                <div class="header-divider"></div>
+
+                <span class="dashboard-title">
+                    Manager Dashboard
+                </span>
+
+            </div>
+
+
+            <div class="header-right">
+
+                <div class="welcome-box">
+
+                    <span class="welcome-small">
+                        Welcome
+                    </span>
+
+                    <strong id="managerWelcome">
+                        Manager
+                    </strong>
+
+                </div>
+
+
+                <div class="room-badge">
+
+                    <span>
+                        ROOM
+                    </span>
+
+                    <strong id="managerRoomCode">
+                        -----
+                    </strong>
+
+                </div>
+
+
+                <button
+                    class="logout-button"
+                    onclick="logout()"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <main class="dashboard-container">
+
+            <!-- PAGE INTRO -->
+
+            <div class="dashboard-intro">
+
+                <div>
+                    <span class="section-eyebrow">
+                        WORKSPACE
+                    </span>
+
+                    <h1>
+                        Manage your team
+                    </h1>
+
+                    <p>
+                        Assign tasks, monitor progress and keep
+                        your room organized.
+                    </p>
+                </div>
+
+            </div>
+
+
+
+            <!-- STAT CARDS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👥
+                    </div>
+
+                    <div>
+                        <span>
+                            Members
+                        </span>
+
+                        <strong id="managerMemberCount">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>
+                            Total Tasks
+                        </span>
+
+                        <strong id="managerTaskCount">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon success-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>
+                            Completed
+                        </span>
+
+                        <strong id="managerCompletedCount">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon pending-icon">
+                        !
+                    </div>
+
+                    <div>
+                        <span>
+                            Pending
+                        </span>
+
+                        <strong id="managerPendingCount">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MANAGER CONTENT -->
+
+            <div class="manager-layout">
+
+
+                <!-- CANDIDATES -->
+
+                <div class="panel candidates-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <span class="section-eyebrow">
+                                TEAM
+                            </span>
+
+                            <h2>
+                                Room Members
+                            </h2>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="candidateList"
+                        class="candidate-list"
+                    >
+                        <!-- Candidates inserted here -->
+                    </div>
+
+                </div>
+
+
+
+                <!-- SELECTED CANDIDATE -->
+
+                <div class="panel candidate-details-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <span class="section-eyebrow">
+                                PROGRESS
+                            </span>
+
+                            <h2>
+                                Candidate Details
+                            </h2>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="candidateDetails"
+                        class="candidate-details empty-state"
+                    >
+
+                        <div class="empty-icon">
+                            👤
+                        </div>
+
+                        <h3>
+                            Select a candidate
+                        </h3>
+
+                        <p>
+                            Choose a team member to view their
+                            tasks and progress.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CREATE TASK -->
+
+            <div class="panel create-task-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="section-eyebrow">
+                            TASK MANAGEMENT
+                        </span>
+
+                        <h2>
+                            Create New Task
+                        </h2>
+                    </div>
+
+                    <span class="manager-only-tag">
+                        Manager Only
+                    </span>
+
+                </div>
+
+
+                <form
+                    id="taskForm"
+                    onsubmit="createTask(event)"
+                >
+
+                    <div class="form-grid">
+
+
+                        <div class="input-group">
+
+                            <label for="taskTitle">
+                                Task Title
+                            </label>
+
+                            <input
+                                type="text"
+                                id="taskTitle"
+                                placeholder="Enter task title"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="taskPriority">
+                                Priority
+                            </label>
+
+                            <select id="taskPriority">
+
+                                <option value="Low">
+                                    Low
+                                </option>
+
+                                <option
+                                    value="Medium"
+                                    selected
+                                >
+                                    Medium
+                                </option>
+
+                                <option value="High">
+                                    High
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="input-group full-width">
+
+                            <label for="taskDescription">
+                                Description
+                            </label>
+
+                            <textarea
+                                id="taskDescription"
+                                rows="4"
+                                placeholder="Describe the task..."
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="taskDate">
+                                Due Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="taskDate"
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="taskTime">
+                                Due Time
+                            </label>
+
+                            <input
+                                type="time"
+                                id="taskTime"
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="assignmentType">
+                                Assign To
+                            </label>
+
+                            <select
+                                id="assignmentType"
+                                onchange="toggleCandidateAssignment()"
+                            >
+
+                                <option value="room">
+                                    Whole Room
+                                </option>
+
+                                <option value="candidate">
+                                    Specific Candidate
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div
+                            class="input-group hidden"
+                            id="candidateAssignmentGroup"
+                        >
+
+                            <label for="taskCandidate">
+                                Select Candidate
+                            </label>
+
+                            <select id="taskCandidate">
+                                <option value="">
+                                    Select a candidate
+                                </option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="task-form-footer">
+
+                        <p>
+                            <strong>Whole Room:</strong>
+                            Every member receives the task and
+                            completes it individually.
+                        </p>
+
+                        <button
+                            type="submit"
+                            class="primary-button create-button"
+                        >
+                            + Create Task
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </main>
+
+    </section>
+
+
+
+    <!-- =========================
+         CANDIDATE DASHBOARD
+    ========================== -->
+
+    <section
+        id="candidateDashboard"
+        class="dashboard-section hidden"
+    >
+
+        <header class="dashboard-header">
+
+            <div class="header-left">
+
+                <div class="header-logo">
+                    TASKFLOW
+                </div>
+
+                <div class="header-divider"></div>
+
+                <span class="dashboard-title">
+                    Candidate Dashboard
+                </span>
+
+            </div>
+
+
+            <div class="header-right">
+
+                <div class="welcome-box">
+
+                    <span class="welcome-small">
+                        Welcome
+                    </span>
+
+                    <strong id="candidateWelcome">
+                        Candidate
+                    </strong>
+
+                </div>
+
+
+                <div class="room-badge">
+
+                    <span>
+                        ROOM
+                    </span>
+
+                    <strong id="candidateRoomCode">
+                        -----
+                    </strong>
+
+                </div>
+
+
+                <button
+                    class="logout-button"
+                    onclick="logout()"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <main class="dashboard-container">
+
+            <div class="dashboard-intro">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        YOUR WORKSPACE
+                    </span>
+
+                    <h1>
+                        Your tasks
+                    </h1>
+
+                    <p>
+                        Stay on top of your assigned work and
+                        track your progress.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CANDIDATE STATS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>
+                            Total Tasks
+                        </span>
+
+                        <strong id="candidateTaskCount">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon pending-icon">
+                        !
+                    </div>
+
+                    <div>
+                        <span>
+                            Pending
+                        </span>
+
+                        <strong id="candidatePendingCount">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon success-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>
+                            Completed
+                        </span>
+
+                        <strong id="candidateCompletedCount">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card progress-stat">
+
+                    <div class="stat-icon">
+                        %
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Progress
+                        </span>
+
+                        <strong id="candidateProgress">
+                            0%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TASK SECTION -->
+
+            <div class="panel task-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="section-eyebrow">
+                            MY WORK
+                        </span>
+
+                        <h2>
+                            Tasks
+                        </h2>
+
+                    </div>
+
+
+                    <div class="task-filters">
+
+                        <button
+                            class="filter-button active"
+                            onclick="filterCandidateTasks('all', this)"
+                        >
+                            All
+                        </button>
+
+                        <button
+                            class="filter-button"
+                            onclick="filterCandidateTasks('pending', this)"
+                        >
+                            Pending
+                        </button>
+
+                        <button
+                            class="filter-button"
+                            onclick="filterCandidateTasks('completed', this)"
+                        >
+                            Completed
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="candidateTaskList"
+                    class="task-list"
+                >
+                    <!-- Tasks inserted here -->
+                </div>
+
+            </div>
+
+        </main>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
