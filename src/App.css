@@ -1,0 +1,1002 @@
+
+/* =====================================
+   TASKFLOW - COMPLETE PROJECT CSS
+   Theme: Warm Beige + Deep Navy Purple
+===================================== */
+
+/* 1. GLOBAL STYLES */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #F4F1EA;
+  --surface: #FFFFFF;
+  --primary: #29243F;
+  --primary-light: #403858;
+  --secondary: #81749E;
+  --text: #302B3D;
+  --muted: #898392;
+  --border: #E8E3EC;
+  --success: #47866B;
+  --warning: #D49B51;
+  --danger: #C75B5B;
+  --soft-purple: #F0EDF5;
+  --shadow: 0 8px 30px rgba(41, 36, 63, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* 2. COMMON PAGE LAYOUT */
+
+.page-section,
+.rolePage,
+.authPage {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 20px;
+  background: var(--bg);
+}
+
+.landing-container {
+  width: 100%;
+  max-width: 850px;
+  text-align: center;
+  background: var(--surface);
+  padding: 55px 40px;
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+.landing-container h1,
+.landing-container h2 {
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.landing-subtitle {
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.landing-description {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+
+/* 3. ROLE SELECTION */
+
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.role-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 35px 25px;
+  text-align: center;
+  transition: 0.25s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(41,36,63,0.04);
+}
+
+.role-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--secondary);
+  box-shadow: var(--shadow);
+}
+
+.role-icon {
+  width: 65px;
+  height: 65px;
+  background: var(--soft-purple);
+  color: var(--primary);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  font-size: 28px;
+}
+
+.role-card h2,
+.role-card h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.role-card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.role-action {
+  display: inline-block;
+  margin-top: 20px;
+  background: var(--primary);
+  color: white;
+  padding: 11px 24px;
+  border-radius: 9px;
+  font-weight: 600;
+}
+
+/* 4. LOGIN AND REGISTER PAGE */
+
+.auth-container,
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 20px;
+  background: var(--bg);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 480px;
+  background: var(--surface);
+  padding: 38px;
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.auth-card h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 18px 0 8px;
+}
+
+.auth-card h2 {
+  color: var(--primary);
+  font-size: 21px;
+  margin: 25px 0 18px;
+}
+
+.auth-card p {
+  color: var(--muted);
+  margin-bottom: 22px;
+  line-height: 1.6;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 9px 16px;
+  border: 1px solid var(--border);
+  background: var(--soft-purple);
+  color: var(--primary);
+  border-radius: 8px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 5px;
+  background: var(--soft-purple);
+  border-radius: 10px;
+  margin: 25px 0;
+}
+
+.auth-tabs button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.auth-tabs button.active,
+.auth-tabs button[aria-selected="true"] {
+  background: var(--primary);
+  color: white;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.auth-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.auth-card input,
+.auth-card select,
+.auth-card textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: white;
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+}
+
+.auth-card input:focus,
+.auth-card select:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(129,116,158,0.12);
+}
+
+.primary-button {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.primary-button:hover {
+  background: var(--primary-light);
+}
+
+.secondary-button {
+  padding: 11px 18px;
+  background: var(--soft-purple);
+  color: var(--primary);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  font-weight: 600;
+}
+
+/* 5. DASHBOARD GENERAL */
+
+.managerDashboard,
+.candidateDashboard {
+  min-height: 100vh;
+  display: flex;
+  background: var(--bg);
+}
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+  background: var(--primary);
+  color: white;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.sidebar h2,
+.sidebar h3 {
+  color: white;
+}
+
+.sidebar-logo {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 5px 10px 25px;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.sidebar-menu button,
+.sidebar a {
+  width: 100%;
+  padding: 13px 14px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #E8E3F0;
+  text-align: left;
+  font-size: 14px;
+}
+
+.sidebar-menu button:hover,
+.sidebar-menu button.active {
+  background: #49415F;
+  color: white;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  padding: 35px;
+  overflow-x: hidden;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.dashboard-header h1 {
+  color: var(--primary);
+  font-size: 28px;
+  margin-bottom: 7px;
+}
+
+.dashboard-header p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* 6. STATISTICS CARDS */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: white;
+  padding: 22px;
+  border-radius: 15px;
+  border: 1px solid var(--border);
+  box-shadow: 0 3px 12px rgba(41,36,63,0.03);
+}
+
+.stat-card h3 {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.stat-card h2 {
+  color: var(--primary);
+  font-size: 29px;
+}
+
+.stat-card p {
+  color: var(--success);
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+/* 7. ROOM AND CANDIDATE MANAGEMENT */
+
+.room-card,
+.progress-card,
+.candidate-details,
+.dashboard-panel {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 22px;
+  box-shadow: 0 3px 12px rgba(41,36,63,0.03);
+}
+
+.room-card h2,
+.dashboard-panel h2 {
+  color: var(--primary);
+  font-size: 19px;
+  margin-bottom: 15px;
+}
+
+.candidate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.candidate-card {
+  background: #FAF9F7;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 18px;
+  transition: 0.2s;
+}
+
+.candidate-card:hover {
+  border-color: var(--secondary);
+  transform: translateY(-3px);
+}
+
+.candidate-card h3 {
+  color: var(--primary);
+  margin: 10px 0 5px;
+}
+
+.candidate-card p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.candidate-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--soft-purple);
+  color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.candidate-details h2 {
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+/* 8. TASK MANAGEMENT */
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.task-card {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 19px;
+  border-radius: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.task-card h3 {
+  color: var(--primary);
+  font-size: 16px;
+  margin-bottom: 7px;
+}
+
+.task-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.task-info {
+  flex: 1;
+  min-width: 180px;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.edit-button {
+  padding: 9px 14px;
+  background: var(--soft-purple);
+  color: var(--primary);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.delete-button {
+  padding: 9px 14px;
+  background: #FCEEEE;
+  color: var(--danger);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.complete-button {
+  padding: 9px 14px;
+  background: #E8F4EC;
+  color: var(--success);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.add-task-button {
+  padding: 12px 20px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-weight: 600;
+}
+
+/* 9. TASK STATUS */
+
+.status,
+.task-status {
+  display: inline-block;
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.status.pending,
+.task-status.pending {
+  color: #A66B22;
+  background: #FFF3DD;
+}
+
+.status.completed,
+.task-status.completed {
+  color: #367555;
+  background: #E4F3E9;
+}
+
+.status.in-progress,
+.task-status.in-progress {
+  color: #4269A0;
+  background: #E8F0FC;
+}
+
+.status.overdue,
+.task-status.overdue {
+  color: #B74747;
+  background: #FCEAEA;
+}
+
+/* 10. PROGRESS BARS */
+
+.progress-container {
+  width: 100%;
+  height: 9px;
+  background: #EDEAF0;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--secondary);
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* 11. TASK MODAL / EDIT FORM */
+
+.taskModal,
+.task-modal,
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(25, 22, 38, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal-content,
+.task-form {
+  width: 100%;
+  max-width: 520px;
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-content h2,
+.task-form h2 {
+  color: var(--primary);
+  margin-bottom: 22px;
+}
+
+.modal-content form,
+.task-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-content label,
+.task-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select,
+.task-form input,
+.task-form textarea,
+.task-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  color: var(--text);
+  outline: none;
+}
+
+.modal-content textarea,
+.task-form textarea {
+  min-height: 95px;
+  resize: vertical;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+}
+
+.save-button {
+  background: var(--primary);
+  color: white;
+}
+
+.cancel-button {
+  background: var(--soft-purple);
+  color: var(--primary);
+}
+
+/* 12. FILTER BUTTONS */
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.filter-btn {
+  padding: 9px 17px;
+  background: white;
+  color: var(--primary);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* 13. SEARCH AND GENERAL INPUTS */
+
+.search-input {
+  width: 100%;
+  max-width: 320px;
+  padding: 12px 15px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: white;
+  outline: none;
+  color: var(--text);
+}
+
+.search-input:focus {
+  border-color: var(--secondary);
+}
+
+input,
+textarea,
+select {
+  max-width: 100%;
+}
+
+/* 14. NOTIFICATIONS AND EMPTY STATES */
+
+.notification,
+.alert {
+  padding: 14px 17px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.success-message {
+  background: #E8F4EC;
+  color: #367555;
+}
+
+.error-message {
+  background: #FCEEEE;
+  color: #B74747;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 45px 20px;
+  color: var(--muted);
+  background: white;
+  border-radius: 14px;
+  border: 1px dashed var(--border);
+}
+
+/* 15. TABLES */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+th {
+  background: var(--soft-purple);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+td {
+  color: var(--text);
+}
+
+/* 16. CANDIDATE DASHBOARD */
+
+.candidateDashboard .main-content {
+  padding: 35px;
+}
+
+.candidate-welcome {
+  background: var(--primary);
+  color: white;
+  border-radius: 18px;
+  padding: 30px;
+  margin-bottom: 25px;
+}
+
+.candidate-welcome h1 {
+  color: white;
+  margin-bottom: 8px;
+}
+
+.candidate-welcome p {
+  color: #E8E3F0;
+  font-size: 14px;
+}
+
+.history-section {
+  background: white;
+  padding: 24px;
+  border-radius: 15px;
+  margin-top: 25px;
+}
+
+/* 17. FOOTER */
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* 18. RESPONSIVE DESIGN */
+
+@media (max-width: 1000px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .candidate-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sidebar {
+    width: 210px;
+    min-width: 210px;
+  }
+}
+
+@media (max-width: 700px) {
+  .page-section,
+  .auth-container,
+  .auth-wrapper {
+    padding: 18px 12px;
+  }
+
+  .landing-container {
+    padding: 35px 20px;
+  }
+
+  .role-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-card {
+    padding: 25px 20px;
+  }
+
+  .auth-card h1 {
+    font-size: 26px;
+  }
+
+  .dashboard-layout,
+  .managerDashboard,
+  .candidateDashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: 0;
+    padding: 15px;
+  }
+
+  .sidebar-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .sidebar-menu button {
+    width: auto;
+    flex: 1;
+    text-align: center;
+  }
+
+  .main-content,
+  .candidateDashboard .main-content {
+    padding: 20px 14px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .candidate-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header h1 {
+    font-size: 23px;
+  }
+
+  .task-card {
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 420px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-card h2 {
+    font-size: 23px;
+  }
+
+  .auth-card {
+    padding: 22px 16px;
+  }
+
+  .modal-content,
+  .task-form {
+    padding: 20px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+}
